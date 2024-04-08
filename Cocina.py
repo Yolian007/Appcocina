@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 
 # Título y autor
 st.title("Temporizador")
