@@ -1,7 +1,5 @@
 import streamlit as st
 import time
-from pydub import AudioSegment
-from pydub.playback import play
 
 # Título y autor
 st.title("Temporizador")
@@ -24,10 +22,8 @@ for i in range(tiempo_deseado, 0, -1):
     temporizador.write(f"Tiempo restante: {minutos_restantes} minutos {segundos_restantes} segundos")
     time.sleep(1)
 
-# Reproducir sonido al finalizar el temporizador
-sound_url = "https://www.soundjay.com/button/beep-07.wav"  # Ejemplo de URL de un archivo de sonido en la web
-sound = AudioSegment.from_wav(sound_url)
-play(sound)
+# Ejecutar JavaScript para reproducir el sonido
+st.write('<script type="text/javascript">new Audio("https://www.soundjay.com/button/beep-07.wav").play();</script>', unsafe_allow_html=True)
 
 temporizador.write("¡Listo!")
 
