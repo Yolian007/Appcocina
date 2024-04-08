@@ -1,5 +1,12 @@
 import streamlit as st
 import time
+import pygame
+
+# Inicializar pygame
+pygame.init()
+
+# Cargar el sonido
+sound = pygame.mixer.Sound("beep.wav")  # Asegúrate de tener un archivo "beep.wav" en el mismo directorio
 
 # Título y autor
 st.title("Temporizador")
@@ -21,4 +28,8 @@ for i in range(tiempo_deseado, 0, -1):
     segundos_restantes = i % 60
     temporizador.write(f"Tiempo restante: {minutos_restantes} minutos {segundos_restantes} segundos")
     time.sleep(1)
+
+# Reproducir sonido
+sound.play()
+
 temporizador.write("¡Listo!")
